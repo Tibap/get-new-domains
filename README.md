@@ -4,7 +4,7 @@ Automatic script to get new registered domains from whoisds.com public database.
 
 ## Requirements
 
-* You need to create an account on whoisds.com
+* You need to create an account on: http://whois.domaintools.com/
 * Install python requirements:
 
 ```sh
