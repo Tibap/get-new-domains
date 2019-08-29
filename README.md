@@ -1,11 +1,11 @@
-# Get newly registered domains
+# Get newly registered domains to catch phishing attacks
 
-Automatic script to get new registered domains from whoisds.com public database.
+Automatic script to get new registered domains from whoisds.com public database. This script has been developped to try to be proactive regarding phishing attacks that target a specific organization.
 
 ## Requirements
 
-* You need to create an account on: http://whois.domaintools.com/
-* Install python requirements:
+* You first need to create an account on: http://whois.domaintools.com/
+* Install python requirements if you want to send an email automatically when domains match your keywords:
 
 ```sh
 pip install -r requirements.txt
@@ -13,13 +13,13 @@ pip install -r requirements.txt
 
 ## Usage
 
-* Open get-domains.conf and set all parameters. 
-* if you want to run a simple query:
+* Open get-domains.conf and set all parameters. If you don't want to receive any email, you can just leave the [exchange] section with the default values
+* if you want to run a simple query (no email notification):
 ```
 python get-domains.py -c get-domains.conf
 ```
 
-* if you want to send a notification email if domains match keywords: 
+* if you want to send a notification email when domains match keywords: 
 ```
 python get-domains.py -c get-domains.conf --email my.email@work.com
 ```
