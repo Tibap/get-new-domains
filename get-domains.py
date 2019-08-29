@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # @author Dimitri Kirchner @ vancity
-# Idea was taken from here: https://kaijento.github.io/2017/05/04/web-scraping-requests-eventtarget-viewstate/
+# Credits for the idea goes to: https://kaijento.github.io/2017/05/04/web-scraping-requests-eventtarget-viewstate/
 
 import requests
 import sys, os
@@ -74,7 +74,7 @@ def send_email(content, exchange_host, mailbox, mail_user, mail_password, whois_
     print("Email has been sent to {}.".format(dest_address))
 
 def main():
-    parser = ArgumentParser(description = "Get new domains from whoisds.com.")
+    parser = ArgumentParser(description = "Get newly registered domains to catch phishing attacks.")
     parser.add_argument('-c', '--config',
         dest = 'config_file',
         help = 'Configuration file',
