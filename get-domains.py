@@ -36,13 +36,12 @@ def get_config(config):
     return (exchange_host, mailbox, mail_user, mail_password), (whois_user, whois_password), (storage_path, keywords)
 
 
-def send_email(content, exchange_host, mailbox, mail_user, mail_password, whois_user):  
+def send_email(content, exchange_host, mailbox, mail_user, mail_password, dest_address):  
     """
     Sends an email to dest_address containing the list of potential malicious new domains.
     """
     from exchangelib import DELEGATE, Account, Configuration, Credentials, Message, Mailbox
     
-    dest_address = whois_user # Change this to the email you want to receive the alert if different than your whois user.
     message = "Found the following potential malicious new domains: {}".format(content)
 
     creds = Credentials(username=mail_user, password=mail_password)
@@ -174,7 +173,7 @@ def main():
             
     # Send email if parameter has been set
     if found_results and args.email_notification:
-        send_email(found_results, exchange_host, mailbox, mail_user, mail_password, whois_user)
+        send_email(found_results, exchange_host, mailbox, mail_user, mail_password, args.email_notification)
 
 if __name__ == "__main__":
     main()
